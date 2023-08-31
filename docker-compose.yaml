@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  client_db:
+    container_name: order_db
+    image: postgres:14.0
+    ports:
+      - "5401:5432"
+    restart: always
+    environment:
+      POSTGRES_DB: order
+      POSTGRES_USER: web
+      POSTGRES_PASSWORD: web
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres-data:
